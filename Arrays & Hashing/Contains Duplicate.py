@@ -10,3 +10,8 @@ class Solution:
             numbers_we_found[i] = True
 
         return False
+    
+
+if __name__ == "__main__":
+
+    solution = Solution()
