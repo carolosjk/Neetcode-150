@@ -20,7 +20,6 @@ class WordDictionary:
 
     def search(self, word: str) -> bool:
         cur = self.root
-        print("search",word)
         for i,c in enumerate(word):
             c = getCharIndex(c)
             if c == 26: # c == "." wildcard character
