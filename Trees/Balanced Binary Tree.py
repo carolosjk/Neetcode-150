@@ -10,25 +10,32 @@ class TreeNode:
 
 class Solution:
 
-    def getHeight(self, root: Optional[TreeNode]) -> int:
-
-        if not root:
-            return 0
-        
-        return 1+max(self.getHeight(root.right),self.getHeight(root.left))
-
-
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        isBalanced = True
 
-        if not root:
-            return True
+        def dfs(root: Optional[TreeNode]) -> bool:
+            nonlocal isBalanced 
+            if not root:
+                return 0
+            
+            left = dfs(root.left)
+            right = dfs(root.right)
 
-        return -1 <= self.getHeight(root.left)-self.getHeight(root.right) <= 1
+            if abs(left-right) > 1:
+                isBalanced = False
+            
+            return 1+max(left,right)
+        
+        dfs(root)
+        return isBalanced
+
+
 
 
 
 
 if __name__ == "__main__":
     solution = Solution()
+
     
 
