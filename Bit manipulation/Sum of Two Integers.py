@@ -18,3 +18,7 @@ if __name__ == "__main__":
     print(solution.getSum(1,2))
     print(solution.getSum(2,-5))
     print(solution.getSum(10,-3))
+
+    m = 3
+    n = 2
+    print([[] for i in range(m)])

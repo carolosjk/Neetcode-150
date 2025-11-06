@@ -8,11 +8,10 @@ class Solution:
                 else:
                     right = (row[j+1] == "X") if j+1 < len(row) else False
                     left = (row[j-1] == "X") if j-1 >= 0 else False
-                    top, bottom = False, False
+                    top = False
                     if i-1 >=0:
                         top = board[i-1][j] == "X"
-                    if i+1 < len(board):
-                        bottom = board[i+1][j] == "X"
+
                     
                     if not left:
                         if right:
