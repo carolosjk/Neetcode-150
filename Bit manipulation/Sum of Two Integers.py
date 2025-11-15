@@ -2,16 +2,23 @@ from typing import List
 
 class Solution:
     def getSum(self, a: int, b: int) -> int:
-        mask = 0xFFFFFFFF
+
+        num = 0
+        carry = 0
         
-        while b !=0:
-            carry = (a&b) << 1
-            a = a^b & mask
-            b = carry & mask
+        for i in range(32):
+            bit1 = (a >> i) & 1
+            bit2 = (b >> i) & 1
+            bit = bit1 ^ bit2 ^ carry
+            carry = (bit1&bit2) | (bit1&carry) | (bit2&carry)
+            print(bit1,bit2,bit,carry)
+            if bit:
+                num |= (1 << i)
+
+        if num > 0x7FFFFFFF:
+            num = ~(num^0xFFFFFFFF)
         
-        if a > 0x8FFFFFFF:
-            a = ~(a ^ mask)
-        return a
+        return num
     
 if __name__ == "__main__":
     solution = Solution()
