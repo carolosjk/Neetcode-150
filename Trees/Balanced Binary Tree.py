@@ -10,7 +10,7 @@ class TreeNode:
 
 class Solution:
 
-    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+    def isBalanced(self, root: TreeNode | None) -> bool:
         isBalanced = True
 
         def dfs(root: Optional[TreeNode]) -> bool:
